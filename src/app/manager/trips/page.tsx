@@ -140,83 +140,97 @@ export default function TripsPage() {
             <p className="text-sm text-text-secondary">Fill details to generate LR automatically</p>
           </SheetHeader>
           <form onSubmit={handleCreate} className="space-y-6 mt-6 pb-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Left Column: Route, Client, Vehicle & Driver */}
-              <div className="space-y-4">
+            {/* Section 1: Trip & Route Details */}
+            <div className="space-y-4">
+              <h3 className="text-sm font-semibold text-text-primary pb-2 border-b border-border">
+                1. Trip & Route Details
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <h3 className="text-sm font-semibold text-text-primary mb-3">Route & Client</h3>
-                  <label className="block text-xs font-medium text-text-secondary mb-1">Client</label>
+                  <label className="block text-xs font-medium text-text-secondary mb-1.5">Client</label>
                   <Select value={formClient} onValueChange={(val) => setFormClient(val || "")}>
                     <SelectTrigger className="rounded-xl border-border"><SelectValue placeholder="Select client" /></SelectTrigger>
                     <SelectContent>{clients.map(c => <SelectItem key={c.id} value={c.id}>{c.name}</SelectItem>)}</SelectContent>
                   </Select>
                 </div>
-                <div className="grid grid-cols-2 gap-3">
-                  <div>
-                    <label className="block text-xs font-medium text-text-secondary mb-1">From City</label>
-                    <Select value={formFrom} onValueChange={(val) => setFormFrom(val || "")}>
-                      <SelectTrigger className="rounded-xl border-border"><SelectValue placeholder="From" /></SelectTrigger>
-                      <SelectContent>{["Mumbai","Pune","Nashik","Nagpur","Aurangabad","Kolhapur","Surat","Solapur"].map(c => <SelectItem key={c} value={c}>{c}</SelectItem>)}</SelectContent>
-                    </Select>
-                  </div>
-                  <div>
-                    <label className="block text-xs font-medium text-text-secondary mb-1">To City</label>
-                    <Select value={formTo} onValueChange={(val) => setFormTo(val || "")}>
-                      <SelectTrigger className="rounded-xl border-border"><SelectValue placeholder="To" /></SelectTrigger>
-                      <SelectContent>{["Mumbai","Pune","Nashik","Nagpur","Aurangabad","Kolhapur","Surat","Solapur","Hyderabad"].map(c => <SelectItem key={c} value={c}>{c}</SelectItem>)}</SelectContent>
-                    </Select>
-                  </div>
-                </div>
-                {matchedRoute && (
-                  <div className="rounded-xl bg-muted/50 px-4 py-2.5 text-sm text-text-secondary border border-border">
-                    Distance: {matchedRoute.distance} km · Rate: ₹{matchedRoute.ratePerKm}/km
-                  </div>
-                )}
-
-                <div className="space-y-3 pt-2">
-                  <h3 className="text-sm font-semibold text-text-primary">Vehicle & Driver</h3>
-                  <div>
-                    <label className="block text-xs font-medium text-text-secondary mb-1">Vehicle</label>
-                    <Select value={formVehicle} onValueChange={(val) => setFormVehicle(val || "")}>
-                      <SelectTrigger className="rounded-xl border-border"><SelectValue placeholder="Select vehicle" /></SelectTrigger>
-                      <SelectContent>{vehicles.map(v => <SelectItem key={v.id} value={v.id}>{v.registrationNumber} — {v.type}</SelectItem>)}</SelectContent>
-                    </Select>
-                  </div>
-                  <div>
-                    <label className="block text-xs font-medium text-text-secondary mb-1">Driver</label>
-                    <Select value={formDriver} onValueChange={(val) => setFormDriver(val || "")}>
-                      <SelectTrigger className="rounded-xl border-border"><SelectValue placeholder="Select driver" /></SelectTrigger>
-                      <SelectContent>{drivers.map(d => <SelectItem key={d.id} value={d.id}>{d.name}</SelectItem>)}</SelectContent>
-                    </Select>
-                  </div>
+                <div>
+                  <label className="block text-xs font-medium text-text-secondary mb-1.5">Departure Date</label>
+                  <input type="date" className="w-full px-3 py-2.5 rounded-xl border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-text-primary" />
                 </div>
               </div>
 
-              {/* Right Column: Freight & Advance details */}
-              <div className="space-y-4">
-                <h3 className="text-sm font-semibold text-text-primary">Freight & Advance</h3>
-                <div className="grid grid-cols-2 gap-3">
-                  <div>
-                    <label className="block text-xs font-medium text-text-secondary mb-1">Freight Charge (₹)</label>
-                    <input type="number" defaultValue={matchedRoute ? matchedRoute.distance * matchedRoute.ratePerKm : ""} className="w-full px-3 py-2 rounded-xl border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-text-primary" />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-medium text-text-secondary mb-1">Party Advance (₹)</label>
-                    <input type="number" placeholder="0" className="w-full px-3 py-2 rounded-xl border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-text-primary" />
-                  </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-medium text-text-secondary mb-1.5">From City</label>
+                  <Select value={formFrom} onValueChange={(val) => setFormFrom(val || "")}>
+                    <SelectTrigger className="rounded-xl border-border"><SelectValue placeholder="From" /></SelectTrigger>
+                    <SelectContent>{["Mumbai","Pune","Nashik","Nagpur","Aurangabad","Kolhapur","Surat","Solapur"].map(c => <SelectItem key={c} value={c}>{c}</SelectItem>)}</SelectContent>
+                  </Select>
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-text-secondary mb-1">Trip Advance to Driver (₹)</label>
-                  <input type="number" placeholder="0" className="w-full px-3 py-2 rounded-xl border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-text-primary" />
+                  <label className="block text-xs font-medium text-text-secondary mb-1.5">To City</label>
+                  <Select value={formTo} onValueChange={(val) => setFormTo(val || "")}>
+                    <SelectTrigger className="rounded-xl border-border"><SelectValue placeholder="To" /></SelectTrigger>
+                    <SelectContent>{["Mumbai","Pune","Nashik","Nagpur","Aurangabad","Kolhapur","Surat","Solapur","Hyderabad"].map(c => <SelectItem key={c} value={c}>{c}</SelectItem>)}</SelectContent>
+                  </Select>
                 </div>
-                <div>
-                  <label className="block text-xs font-medium text-text-secondary mb-1">Departure Date</label>
-                  <input type="date" className="w-full px-3 py-2 rounded-xl border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-text-primary" />
+              </div>
+              
+              {matchedRoute && (
+                <div className="rounded-xl bg-primary-light/50 px-4 py-2.5 text-xs text-primary border border-primary/20 flex justify-between items-center">
+                  <span>Distance: <strong>{matchedRoute.distance} km</strong></span>
+                  <span>Rate: <strong>₹{matchedRoute.ratePerKm}/km</strong></span>
+                  <span>Est. Freight: <strong>₹{matchedRoute.distance * matchedRoute.ratePerKm}</strong></span>
                 </div>
+              )}
+            </div>
 
-                <div className="rounded-xl bg-muted/50 px-4 py-3 border border-border mt-2">
-                  <p className="text-sm text-text-secondary">LR Number will be: <span className="font-mono font-semibold text-text-primary">LR/2025/016</span></p>
+            {/* Section 2: Vehicle & Driver Assignment */}
+            <div className="space-y-4 pt-2">
+              <h3 className="text-sm font-semibold text-text-primary pb-2 border-b border-border">
+                2. Vehicle & Driver Assignment
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-medium text-text-secondary mb-1.5">Vehicle</label>
+                  <Select value={formVehicle} onValueChange={(val) => setFormVehicle(val || "")}>
+                    <SelectTrigger className="rounded-xl border-border"><SelectValue placeholder="Select vehicle" /></SelectTrigger>
+                    <SelectContent>{vehicles.map(v => <SelectItem key={v.id} value={v.id}>{v.registrationNumber} — {v.type}</SelectItem>)}</SelectContent>
+                  </Select>
                 </div>
+                <div>
+                  <label className="block text-xs font-medium text-text-secondary mb-1.5">Driver</label>
+                  <Select value={formDriver} onValueChange={(val) => setFormDriver(val || "")}>
+                    <SelectTrigger className="rounded-xl border-border"><SelectValue placeholder="Select driver" /></SelectTrigger>
+                    <SelectContent>{drivers.map(d => <SelectItem key={d.id} value={d.id}>{d.name}</SelectItem>)}</SelectContent>
+                  </Select>
+                </div>
+              </div>
+            </div>
+
+            {/* Section 3: Financial Details */}
+            <div className="space-y-4 pt-2">
+              <h3 className="text-sm font-semibold text-text-primary pb-2 border-b border-border">
+                3. Financial Details
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                  <label className="block text-xs font-medium text-text-secondary mb-1.5">Freight Charge (₹)</label>
+                  <input type="number" defaultValue={matchedRoute ? matchedRoute.distance * matchedRoute.ratePerKm : ""} className="w-full px-3 py-2.5 rounded-xl border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-text-primary" />
+                </div>
+                <div>
+                  <label className="block text-xs font-medium text-text-secondary mb-1.5">Party Advance (₹)</label>
+                  <input type="number" placeholder="0" className="w-full px-3 py-2.5 rounded-xl border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-text-primary" />
+                </div>
+                <div>
+                  <label className="block text-xs font-medium text-text-secondary mb-1.5">Trip Advance to Driver (₹)</label>
+                  <input type="number" placeholder="0" className="w-full px-3 py-2.5 rounded-xl border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-text-primary" />
+                </div>
+              </div>
+
+              <div className="rounded-xl bg-muted/50 px-4 py-3 border border-border mt-2 flex justify-between items-center">
+                <span className="text-sm text-text-secondary">LR Number will be generated automatically:</span>
+                <span className="font-mono font-bold text-[#FF6B00] bg-[#FFF0E5] px-3 py-1 rounded-lg text-sm border border-[#FF6B00]/20">LR/2025/016</span>
               </div>
             </div>
 

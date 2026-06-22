@@ -39,18 +39,27 @@ export default function LoginPage() {
   return (
     <div className="flex min-h-screen bg-white">
       {/* Left Panel — Hero */}
-      <div className="hidden lg:flex lg:w-[58%] bg-[#111111] relative overflow-hidden flex-col justify-center px-20 rounded-r-[3.5rem] z-10 shadow-[20px_0_50px_rgba(0,0,0,0.15)]">
-        {/* Subtle gradient orb */}
-        <div className="absolute top-1/4 -right-32 w-[500px] h-[500px] rounded-full bg-[#FF6B00]/15 blur-3xl" />
-        <div className="absolute bottom-1/4 -left-16 w-80 h-80 rounded-full bg-[#FF6B00]/5 blur-3xl" />
+      <div className="hidden lg:flex lg:w-[58%] bg-[#111111] relative flex-col justify-center px-20 z-10">
+        {/* Subtle gradient orbs wrapper */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 right-20 w-[400px] h-[400px] rounded-full bg-[#FF6B00]/15 blur-3xl" />
+          <div className="absolute bottom-1/4 -left-16 w-80 h-80 rounded-full bg-[#FF6B00]/5 blur-3xl" />
+        </div>
+
+        {/* Wavy Divider SVG */}
+        <svg 
+          className="absolute right-0 top-0 h-full w-20 text-[#111111] fill-current translate-x-[98%] pointer-events-none z-20 drop-shadow-[15px_0_15px_rgba(0,0,0,0.15)]"
+          viewBox="0 0 100 1000" 
+          preserveAspectRatio="none"
+        >
+          <path d="M0,0 C45,120 90,220 50,400 C10,580 85,700 35,850 C15,920 40,960 0,1000 L0,0 Z" />
+        </svg>
 
         <div className="relative z-10">
           {/* Logo */}
           <div className="flex items-center gap-4 mb-16">
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FF6B00] shadow-lg shadow-[#FF6B00]/30">
-              <Truck className="h-8 w-8 text-white" />
-            </div>
-            <span className="text-4xl font-extrabold text-white tracking-tight">
+            <Truck className="h-14 w-14 text-[#FF6B00] shrink-0" />
+            <span className="text-5xl font-extrabold text-white tracking-tight">
               Fleet<span className="text-[#FF6B00]">OS</span>
             </span>
           </div>
@@ -81,32 +90,11 @@ export default function LoginPage() {
 
       {/* Right Panel — Login Form */}
       <div className="flex-1 flex items-center justify-center bg-white px-8 py-12 relative overflow-hidden">
-        {/* Abstract Color Flow & Shapes bleeding from the left panel */}
-        <div className="absolute left-0 top-0 bottom-0 w-[500px] pointer-events-none hidden lg:block z-0">
-          {/* Dark theme bleeding to the right */}
-          <div className="absolute top-[10%] -left-20 w-[350px] h-[350px] rounded-full bg-[#111111] blur-[80px] opacity-10" />
-          {/* Theme orange color flow */}
-          <div className="absolute top-[35%] -left-32 w-[400px] h-[400px] rounded-full bg-gradient-to-r from-[#FF6B00]/25 to-[#FF6B00]/5 blur-[100px] opacity-50" />
-          {/* Secondary dark bleed near the bottom */}
-          <div className="absolute bottom-[15%] -left-40 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-[#111111]/30 via-[#FF6B00]/10 to-transparent blur-[120px] opacity-40" />
-
-          {/* Abstract Fluid SVG Shapes */}
-          <svg className="absolute top-[20%] -left-10 w-72 h-[450px] text-[#111111]/15 blur-[8px] animate-pulse" viewBox="0 0 200 300" fill="currentColor" style={{ animationDuration: '10s' }}>
-            <path d="M 20,10 C 70,5 110,60 140,110 C 170,160 190,220 150,260 C 110,300 40,290 15,240 C -10,190 -20,130 5,70 C 15,40 -10,15 20,10 Z" />
-          </svg>
-
-          <svg className="absolute bottom-[20%] -left-24 w-80 h-[500px] text-[#FF6B00]/8 blur-[10px]" viewBox="0 0 200 300" fill="currentColor">
-            <path d="M 50,20 C 120,10 160,80 180,150 C 200,220 170,270 120,285 C 70,300 30,240 10,170 C -10,100 10,40 50,20 Z" />
-          </svg>
-        </div>
-
         <div className="w-full max-w-md relative z-10">
           {/* Mobile logo */}
-          <div className="flex items-center gap-2 mb-8 lg:hidden">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#FF6B00]">
-              <Truck className="h-5 w-5 text-white" />
-            </div>
-            <span className="text-xl font-bold text-[#111111]">
+          <div className="flex items-center gap-3 mb-8 lg:hidden">
+            <Truck className="h-10 w-10 text-[#FF6B00] shrink-0" />
+            <span className="text-3xl font-extrabold text-[#111111] tracking-tight">
               Fleet<span className="text-[#FF6B00]">OS</span>
             </span>
           </div>

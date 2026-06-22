@@ -202,7 +202,6 @@ export default function ManagerDashboard() {
         <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-base font-semibold text-text-primary">Upcoming Reminders</h2>
-            <Link href="/manager/reminders" className="text-sm text-primary font-medium hover:text-primary-dark">View All</Link>
           </div>
           <div className="space-y-3">
             {reminders.map((item) => (

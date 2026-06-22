@@ -42,11 +42,9 @@ export function OwnerSidebar() {
   return (
     <aside className="fixed left-0 top-0 z-30 flex h-screen w-60 flex-col bg-card border-r border-border">
       {/* Logo */}
-      <div className="flex items-center gap-2 px-5 py-5 border-b border-border">
-        <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary">
-          <Truck className="h-5 w-5 text-white" />
-        </div>
-        <span className="text-lg font-bold text-text-primary">
+      <div className="flex items-center gap-3 px-5 py-5 border-b border-border">
+        <Truck className="h-9 w-9 text-primary shrink-0" />
+        <span className="text-2xl font-extrabold text-text-primary tracking-tight">
           Fleet<span className="text-primary">OS</span>
         </span>
       </div>
