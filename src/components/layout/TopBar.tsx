@@ -23,7 +23,7 @@ export function TopBar({ title }: TopBarProps) {
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
-    const isDark = savedTheme === "dark" || (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    const isDark = savedTheme === "dark";
     if (isDark) {
       setTheme("dark");
       document.documentElement.classList.add("dark");

@@ -89,11 +89,11 @@ export default function LoginPage() {
       </div>
 
       {/* Right Panel — Login Form */}
-      <div className="flex-1 flex items-center justify-center bg-[#F5F5F7] lg:bg-white px-4 py-4 sm:py-8 relative overflow-hidden">
+      <div className="flex-1 flex items-center justify-center bg-[#F5F5F7] lg:bg-white px-4 py-8 relative overflow-hidden">
         <div className="w-full max-w-md relative z-10 bg-white border border-[#EEEEEE] lg:border-none lg:shadow-none shadow-xl rounded-[2.5rem] overflow-hidden">
           
           {/* Mobile Dark Header with Wavy Cut (hidden on desktop) */}
-          <div className="lg:hidden bg-[#111111] pt-10 pb-12 relative flex flex-col items-center justify-center pointer-events-none">
+          <div className="lg:hidden bg-[#111111] pt-16 pb-22 relative flex flex-col items-center justify-center pointer-events-none">
             {/* Logo */}
             <div className="flex items-center gap-3">
               <Truck className="h-8 w-8 text-[#FF6B00] shrink-0" />
@@ -104,7 +104,7 @@ export default function LoginPage() {
             
             {/* Horizontal Wavy Divider */}
             <svg 
-              className="absolute bottom-0 left-0 w-full h-8 text-white fill-current translate-y-[2px]"
+              className="absolute bottom-0 left-0 w-full h-10 text-white fill-current translate-y-[2px]"
               viewBox="0 0 1000 100" 
               preserveAspectRatio="none"
             >
@@ -113,7 +113,7 @@ export default function LoginPage() {
           </div>
 
           {/* Form Content Wrapper */}
-          <div className="p-5 sm:p-8 lg:p-0 bg-white">
+          <div className="p-8 lg:p-0 bg-white">
             <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-[#111111] mb-0.5 sm:mb-1">
               Welcome back
             </h2>
@@ -121,7 +121,7 @@ export default function LoginPage() {
               Sign in to your FleetOS account
             </p>
 
-          <form onSubmit={handleLogin} className="space-y-4 sm:space-y-5">
+          <form onSubmit={handleLogin} className="space-y-5.5 sm:space-y-6">
             {/* Email */}
             <div>
               <label className="block text-sm font-medium text-[#111111] mb-1.5">
