@@ -80,8 +80,27 @@ export default function LoginPage() {
       </div>
 
       {/* Right Panel — Login Form */}
-      <div className="flex-1 flex items-center justify-center bg-white px-8 py-12">
-        <div className="w-full max-w-md">
+      <div className="flex-1 flex items-center justify-center bg-white px-8 py-12 relative overflow-hidden">
+        {/* Abstract Color Flow & Shapes bleeding from the left panel */}
+        <div className="absolute left-0 top-0 bottom-0 w-[500px] pointer-events-none hidden lg:block z-0">
+          {/* Dark theme bleeding to the right */}
+          <div className="absolute top-[10%] -left-20 w-[350px] h-[350px] rounded-full bg-[#111111] blur-[80px] opacity-10" />
+          {/* Theme orange color flow */}
+          <div className="absolute top-[35%] -left-32 w-[400px] h-[400px] rounded-full bg-gradient-to-r from-[#FF6B00]/25 to-[#FF6B00]/5 blur-[100px] opacity-50" />
+          {/* Secondary dark bleed near the bottom */}
+          <div className="absolute bottom-[15%] -left-40 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-[#111111]/30 via-[#FF6B00]/10 to-transparent blur-[120px] opacity-40" />
+
+          {/* Abstract Fluid SVG Shapes */}
+          <svg className="absolute top-[20%] -left-10 w-72 h-[450px] text-[#111111]/15 blur-[8px] animate-pulse" viewBox="0 0 200 300" fill="currentColor" style={{ animationDuration: '10s' }}>
+            <path d="M 20,10 C 70,5 110,60 140,110 C 170,160 190,220 150,260 C 110,300 40,290 15,240 C -10,190 -20,130 5,70 C 15,40 -10,15 20,10 Z" />
+          </svg>
+
+          <svg className="absolute bottom-[20%] -left-24 w-80 h-[500px] text-[#FF6B00]/8 blur-[10px]" viewBox="0 0 200 300" fill="currentColor">
+            <path d="M 50,20 C 120,10 160,80 180,150 C 200,220 170,270 120,285 C 70,300 30,240 10,170 C -10,100 10,40 50,20 Z" />
+          </svg>
+        </div>
+
+        <div className="w-full max-w-md relative z-10">
           {/* Mobile logo */}
           <div className="flex items-center gap-2 mb-8 lg:hidden">
             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#FF6B00]">
