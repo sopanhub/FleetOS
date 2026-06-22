@@ -90,14 +90,14 @@ export default function LoginPage() {
 
       {/* Right Panel — Login Form */}
       <div className="flex-1 flex items-center justify-center bg-[#F5F5F7] lg:bg-white px-4 py-8 relative overflow-hidden">
-        <div className="w-full max-w-md relative z-10 bg-white border border-[#EEEEEE] lg:border-none lg:shadow-none shadow-xl rounded-[2.5rem] overflow-hidden">
+        <div className="w-full max-w-[460px] relative z-10 bg-white border border-[#EEEEEE] lg:border-none lg:shadow-none shadow-xl rounded-[2.5rem] overflow-hidden">
           
           {/* Mobile Dark Header with Wavy Cut (hidden on desktop) */}
-          <div className="lg:hidden bg-[#111111] pt-16 pb-22 relative flex flex-col items-center justify-center pointer-events-none">
+          <div className="lg:hidden bg-[#111111] pt-16 pb-26 relative flex flex-col items-center justify-center pointer-events-none">
             {/* Logo */}
             <div className="flex items-center gap-3">
-              <Truck className="h-8 w-8 text-[#FF6B00] shrink-0" />
-              <span className="text-2xl font-extrabold text-white tracking-tight">
+              <Truck className="h-10 w-10 text-[#FF6B00] shrink-0" />
+              <span className="text-3xl font-extrabold text-white tracking-tight">
                 Fleet<span className="text-[#FF6B00]">OS</span>
               </span>
             </div>
@@ -113,15 +113,15 @@ export default function LoginPage() {
           </div>
 
           {/* Form Content Wrapper */}
-          <div className="p-8 lg:p-0 bg-white">
+          <div className="p-8 sm:p-10 lg:p-0 bg-white">
             <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-[#111111] mb-0.5 sm:mb-1">
               Welcome back
             </h2>
-            <p className="text-xs sm:text-sm text-[#666666] mb-5 sm:mb-8">
+            <p className="text-xs sm:text-sm text-[#666666] mb-6 sm:mb-8">
               Sign in to your FleetOS account
             </p>
 
-          <form onSubmit={handleLogin} className="space-y-5.5 sm:space-y-6">
+          <form onSubmit={handleLogin} className="space-y-6 sm:space-y-7">
             {/* Email */}
             <div>
               <label className="block text-sm font-medium text-[#111111] mb-1.5">
@@ -131,7 +131,7 @@ export default function LoginPage() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-2.5 rounded-xl border border-[#EEEEEE] bg-[#F8F8F8] text-sm text-[#111111] placeholder:text-[#AAAAAA] focus:outline-none focus:ring-2 focus:ring-[#FF6B00]/20 focus:border-[#FF6B00] transition-all"
+                className="w-full px-4 py-3 rounded-xl border border-[#EEEEEE] bg-[#F8F8F8] text-sm text-[#111111] placeholder:text-[#AAAAAA] focus:outline-none focus:ring-2 focus:ring-[#FF6B00]/20 focus:border-[#FF6B00] transition-all"
                 placeholder="your@email.com"
               />
             </div>
@@ -146,7 +146,7 @@ export default function LoginPage() {
                   type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-4 py-2.5 rounded-xl border border-[#EEEEEE] bg-[#F8F8F8] text-sm text-[#111111] placeholder:text-[#AAAAAA] focus:outline-none focus:ring-2 focus:ring-[#FF6B00]/20 focus:border-[#FF6B00] transition-all pr-10"
+                  className="w-full px-4 py-3 rounded-xl border border-[#EEEEEE] bg-[#F8F8F8] text-sm text-[#111111] placeholder:text-[#AAAAAA] focus:outline-none focus:ring-2 focus:ring-[#FF6B00]/20 focus:border-[#FF6B00] transition-all pr-10"
                   placeholder="••••••••"
                 />
                 <button
@@ -255,7 +255,7 @@ export default function LoginPage() {
             {/* Submit */}
             <button
               type="submit"
-              className="w-full rounded-full bg-[#FF6B00] px-5 py-3 text-sm font-semibold text-white hover:bg-[#CC5500] active:scale-[0.98] transition-all duration-200 shadow-lg shadow-[#FF6B00]/20"
+              className="w-full rounded-full bg-[#FF6B00] px-5 py-3.5 text-sm font-semibold text-white hover:bg-[#CC5500] active:scale-[0.98] transition-all duration-200 shadow-lg shadow-[#FF6B00]/20"
             >
               Sign In
             </button>
