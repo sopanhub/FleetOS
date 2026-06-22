@@ -29,7 +29,7 @@ export default function OwnerFleetPage() {
   return (
     <div className="space-y-6">
       <PageHeader title="Fleet & Vehicles" />
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 xl:grid-cols-4 gap-3 md:gap-4">
         <StatCard title="Total Vehicles" value="8" icon={Truck} iconBg="bg-[#FF6B00]" badgeText="Full fleet" />
         <StatCard title="On Road" value={String(onRoad)} icon={Navigation} iconBg="bg-[#16A34A]" badgeText="Active + In Transit" />
         <StatCard title="In Maintenance" value={String(inMaint)} icon={Wrench} iconBg="bg-[#D97706]" badgeText="Under repair" />

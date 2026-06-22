@@ -89,24 +89,39 @@ export default function LoginPage() {
       </div>
 
       {/* Right Panel — Login Form */}
-      <div className="flex-1 flex items-center justify-center bg-white px-8 py-12 relative overflow-hidden">
-        <div className="w-full max-w-md relative z-10">
-          {/* Mobile logo */}
-          <div className="flex items-center gap-3 mb-8 lg:hidden">
-            <Truck className="h-10 w-10 text-[#FF6B00] shrink-0" />
-            <span className="text-3xl font-extrabold text-[#111111] tracking-tight">
-              Fleet<span className="text-[#FF6B00]">OS</span>
-            </span>
+      <div className="flex-1 flex items-center justify-center bg-[#F5F5F7] lg:bg-white px-4 py-4 sm:py-8 relative overflow-hidden">
+        <div className="w-full max-w-md relative z-10 bg-white border border-[#EEEEEE] lg:border-none lg:shadow-none shadow-xl rounded-[2.5rem] overflow-hidden">
+          
+          {/* Mobile Dark Header with Wavy Cut (hidden on desktop) */}
+          <div className="lg:hidden bg-[#111111] pt-10 pb-12 relative flex flex-col items-center justify-center pointer-events-none">
+            {/* Logo */}
+            <div className="flex items-center gap-3">
+              <Truck className="h-8 w-8 text-[#FF6B00] shrink-0" />
+              <span className="text-2xl font-extrabold text-white tracking-tight">
+                Fleet<span className="text-[#FF6B00]">OS</span>
+              </span>
+            </div>
+            
+            {/* Horizontal Wavy Divider */}
+            <svg 
+              className="absolute bottom-0 left-0 w-full h-8 text-white fill-current translate-y-[2px]"
+              viewBox="0 0 1000 100" 
+              preserveAspectRatio="none"
+            >
+              <path d="M0,0 C150,80 350,10 500,50 C650,90 850,20 1000,0 L1000,100 L0,100 Z" />
+            </svg>
           </div>
 
-          <h2 className="text-2xl font-semibold tracking-tight text-[#111111] mb-1">
-            Welcome back
-          </h2>
-          <p className="text-sm text-[#666666] mb-8">
-            Sign in to your FleetOS account
-          </p>
+          {/* Form Content Wrapper */}
+          <div className="p-5 sm:p-8 lg:p-0 bg-white">
+            <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-[#111111] mb-0.5 sm:mb-1">
+              Welcome back
+            </h2>
+            <p className="text-xs sm:text-sm text-[#666666] mb-5 sm:mb-8">
+              Sign in to your FleetOS account
+            </p>
 
-          <form onSubmit={handleLogin} className="space-y-5">
+          <form onSubmit={handleLogin} className="space-y-4 sm:space-y-5">
             {/* Email */}
             <div>
               <label className="block text-sm font-medium text-[#111111] mb-1.5">
@@ -245,6 +260,7 @@ export default function LoginPage() {
               Sign In
             </button>
           </form>
+          </div>
         </div>
       </div>
     </div>

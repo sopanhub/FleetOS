@@ -77,7 +77,7 @@ export default function BillingPage() {
       <PageHeader title="Billing & Invoices" />
 
       {/* Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 xl:grid-cols-4 gap-3 md:gap-4">
         <StatCard title="Total Billed" value={formatCurrency(totalBilled)} icon={CreditCard} iconBg="bg-[#FF6B00]" badgeText={`${invoiceList.length} invoices`} />
         <StatCard title="Collected" value={formatCurrency(collected)} icon={CheckCircle} iconBg="bg-[#16A34A]" badgeText="On track" />
         <StatCard title="Outstanding" value={formatCurrency(outstanding)} icon={DollarSign} iconBg="bg-[#D97706]" badgeText={`${invoiceList.filter(i => i.status !== "Paid").length} pending`} />

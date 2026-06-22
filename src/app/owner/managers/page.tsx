@@ -110,7 +110,7 @@ export default function ManagersPage() {
       />
 
       {/* Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
         <StatCard title="Total Managers" value={String(managerList.length)} icon={Users} iconBg="bg-[#FF6B00]" badgeText="All managers" />
         <StatCard title="Active" value={String(activeManagers)} icon={UserCheck} iconBg="bg-[#16A34A]" badgeText="Currently active" />
         <StatCard title="Vehicles Assigned" value={`${totalAssigned} total`} icon={TruckIcon} iconBg="bg-[#2563EB]" badgeText="Across all managers" />

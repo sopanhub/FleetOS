@@ -11,9 +11,9 @@ export default function ManagerLayout({
   return (
     <div className="min-h-screen bg-background">
       <ManagerSidebar />
-      <div className="ml-60">
+      <div className="lg:ml-60 ml-0 pb-24 lg:pb-0">
         <TopBar />
-        <main className="p-6">{children}</main>
+        <main className="p-4 sm:p-6">{children}</main>
       </div>
     </div>
   );

@@ -66,7 +66,7 @@ export default function ManagerDashboard() {
       </div>
 
       {/* Stat Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
         <StatCard title="Active Trips Today" value="9" icon={RouteIcon} iconBg="bg-primary" badgeText="4 vehicles on road" />
         <StatCard title="Pending PODs" value="3" icon={FileCheck} iconBg="bg-[#D97706]" badgeText="Awaiting confirmation" />
         <StatCard title="Driver Advance Pending" value="₹47,200" icon={Wallet} iconBg="bg-danger" badgeText="3 drivers pending settle" />

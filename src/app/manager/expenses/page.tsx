@@ -77,7 +77,7 @@ export default function ExpensesPage() {
       />
 
       {/* Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
         <StatCard title="Total Expenses This Month" value={formatCurrency(totalExpenses)} icon={Receipt} iconBg="bg-[#FF6B00]" badgeText={`${expenses.length} entries`} />
         <StatCard title="Diesel Cost" value={formatCurrency(dieselCost)} trend={`${Math.round((dieselCost / totalExpenses) * 100)}%`} icon={Fuel} iconBg="bg-[#D97706]" badgeText="Largest category" />
         <StatCard title="Other Expenses" value={formatCurrency(otherCost)} icon={Receipt} iconBg="bg-[#2563EB]" badgeText="Toll, Batta, Repair etc." />

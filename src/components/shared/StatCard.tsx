@@ -76,32 +76,38 @@ export function StatCard({
   };
 
   const themeColors = getFaintColors(iconBg);
+  const isLongValue = value.length > 7;
+  const valueSizeClass = isLongValue
+    ? "text-[15px] sm:text-2xl md:text-3xl"
+    : "text-xl sm:text-2xl md:text-3xl";
 
   return (
     <div
       className={cn(
-        "relative rounded-2xl border border-border bg-card p-5 shadow-sm hover:shadow-md transition-shadow duration-200",
+        "relative rounded-2xl border border-border bg-card p-3 sm:p-5 shadow-sm hover:shadow-md transition-shadow duration-200",
         className
       )}
     >
-      <div className="flex items-start justify-between">
-        <div className="flex-1">
-          <p className="text-sm text-text-secondary font-normal">{title}</p>
-          <p className="text-3xl font-semibold tracking-tight text-text-primary mt-1">
+      <div className="flex items-start justify-between gap-1.5">
+        <div className="flex-1 min-w-0">
+          <p className="text-[11px] sm:text-sm text-text-secondary font-normal line-clamp-2 sm:line-clamp-none" title={title}>
+            {title}
+          </p>
+          <p className={cn("font-semibold tracking-tight text-text-primary mt-0.5 sm:mt-1 truncate", valueSizeClass)} title={value}>
             {value}
           </p>
           {trend && (
-            <div className="flex items-center gap-1 mt-1">
+            <div className="flex items-center gap-1 mt-0.5 sm:mt-1">
               {trendUp !== undefined && (
                 trendUp ? (
-                  <TrendingUp className="h-3.5 w-3.5 text-success" />
+                  <TrendingUp className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-success shrink-0" />
                 ) : (
-                  <TrendingDown className="h-3.5 w-3.5 text-danger" />
+                  <TrendingDown className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-danger shrink-0" />
                 )
               )}
               <span
                 className={cn(
-                  "text-xs font-medium",
+                  "text-[10px] sm:text-xs font-medium truncate",
                   trendUp === true && "text-success",
                   trendUp === false && "text-danger",
                   trendUp === undefined && "text-text-secondary"
@@ -114,15 +120,15 @@ export function StatCard({
         </div>
         <div
           className={cn(
-            "flex h-12 w-12 items-center justify-center rounded-xl shrink-0",
+            "flex h-8 w-8 sm:h-12 sm:w-12 items-center justify-center rounded-lg sm:rounded-xl shrink-0",
             themeColors.bg
           )}
         >
-          <Icon className={cn("h-6 w-6", themeColors.text)} />
+          <Icon className={cn("h-4 w-4 sm:h-6 sm:w-6", themeColors.text)} />
         </div>
       </div>
-      <div className="mt-3">
-        <span className={cn("inline-flex items-center rounded-full px-3 py-1 text-xs font-medium", themeColors.badgeBg, themeColors.badgeText)}>
+      <div className="mt-2.5 sm:mt-3">
+        <span className={cn("inline-flex items-center rounded-full px-2 py-0.5 sm:px-3 sm:py-1 text-[9px] sm:text-xs font-medium truncate max-w-full", themeColors.badgeBg, themeColors.badgeText)}>
           {badgeText}
         </span>
       </div>
