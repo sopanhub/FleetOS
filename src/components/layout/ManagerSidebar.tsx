@@ -11,7 +11,6 @@ import {
   Receipt,
   CreditCard,
   Truck,
-  Bell,
   LogOut,
 } from "lucide-react";
 
