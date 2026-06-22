@@ -37,42 +37,42 @@ export default function LoginPage() {
   ];
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen bg-white">
       {/* Left Panel — Hero */}
-      <div className="hidden lg:flex lg:w-[55%] bg-[#111111] relative overflow-hidden flex-col justify-center px-16">
+      <div className="hidden lg:flex lg:w-[58%] bg-[#111111] relative overflow-hidden flex-col justify-center px-20 rounded-r-[3.5rem] z-10 shadow-[20px_0_50px_rgba(0,0,0,0.15)]">
         {/* Subtle gradient orb */}
-        <div className="absolute top-1/4 -right-32 w-96 h-96 rounded-full bg-[#FF6B00]/10 blur-3xl" />
-        <div className="absolute bottom-1/4 -left-16 w-64 h-64 rounded-full bg-[#FF6B00]/5 blur-3xl" />
+        <div className="absolute top-1/4 -right-32 w-[500px] h-[500px] rounded-full bg-[#FF6B00]/15 blur-3xl" />
+        <div className="absolute bottom-1/4 -left-16 w-80 h-80 rounded-full bg-[#FF6B00]/5 blur-3xl" />
 
         <div className="relative z-10">
           {/* Logo */}
-          <div className="flex items-center gap-3 mb-12">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#FF6B00]">
-              <Truck className="h-7 w-7 text-white" />
+          <div className="flex items-center gap-4 mb-16">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FF6B00] shadow-lg shadow-[#FF6B00]/30">
+              <Truck className="h-8 w-8 text-white" />
             </div>
-            <span className="text-3xl font-bold text-white">
+            <span className="text-4xl font-extrabold text-white tracking-tight">
               Fleet<span className="text-[#FF6B00]">OS</span>
             </span>
           </div>
 
           {/* Tagline */}
-          <h1 className="text-4xl font-bold text-white leading-tight mb-4">
+          <h1 className="text-5xl font-extrabold text-white leading-[1.15] mb-6 tracking-tight">
             Track every rupee.
             <br />
             <span className="text-[#FF6B00]">Every kilometer.</span>
           </h1>
-          <p className="text-lg text-gray-400 mb-10 max-w-md">
+          <p className="text-xl text-gray-400 mb-12 max-w-md leading-relaxed">
             The complete fleet management platform built for Indian transport businesses.
           </p>
 
           {/* Feature bullets */}
-          <div className="space-y-4">
+          <div className="space-y-5">
             {features.map((feature, i) => (
-              <div key={i} className="flex items-start gap-3">
-                <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#FF6B00] mt-0.5">
-                  <Check className="h-3.5 w-3.5 text-white" />
+              <div key={i} className="flex items-start gap-4">
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#FF6B00] mt-0.5 shadow-md shadow-[#FF6B00]/20">
+                  <Check className="h-4 w-4 text-white" />
                 </div>
-                <p className="text-gray-300 text-sm leading-relaxed">{feature}</p>
+                <p className="text-gray-300 text-base leading-relaxed">{feature}</p>
               </div>
             ))}
           </div>
